@@ -15,6 +15,9 @@
 #define ID_B							111
 #define ID_RE							150
 #define ID_ABOUT						160
+#define ID_RR							112
+#define ID_RG							113
+#define ID_RB							114
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED

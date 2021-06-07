@@ -82,7 +82,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		TYPE_RECTR,
 		TYPE_RECTG,
 		TYPE_RECTB,
-		TYPE_RE
+		TYPE_RR,
+		TYPE_RG,
+		TYPE_RB
 	};
 	//PInfo用来保存窗口中所有图形
 	typedef struct tagPaintInfo
@@ -171,8 +173,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		case ID_B:
 			nTypy = TYPE_RECTB;
 			break;
-		case ID_RE:
-			nTypy = TYPE_RE;
+		case ID_RR:
+			nTypy = TYPE_RR;
+			break;
+		case ID_RG:
+			nTypy = TYPE_RG;
+			break;
+		case ID_RB:
+			nTypy = TYPE_RG;
 			break;
 		case ID_ABOUT:
 				DialogBox(hins, MAKEINTRESOURCE(IDD_DIALOG1), hwnd,AboutDlgProc);
@@ -244,8 +252,18 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 				SelectObject(hdc, HB);
 				Rectangle(hdc, ptBegin.x, ptBegin.y, ptEnd.x, ptEnd.y);
 				break;
-			case TYPE_RE:
-				HB = CreateSolidBrush(RGB(255, 255, 255));
+			case TYPE_RR:
+				HB = CreateSolidBrush(RGB(255, 0, 0));
+				SelectObject(hdc, HB);
+				Ellipse(hdc, ptBegin.x, ptBegin.y, ptEnd.x, ptEnd.y);
+				break;
+			case TYPE_RG:
+				HB = CreateSolidBrush(RGB(0, 255, 0));
+				SelectObject(hdc, HB);
+				Ellipse(hdc, ptBegin.x, ptBegin.y, ptEnd.x, ptEnd.y);
+				break;
+			case TYPE_RB:
+				HB = CreateSolidBrush(RGB(0, 0, 255));
 				SelectObject(hdc, HB);
 				Ellipse(hdc, ptBegin.x, ptBegin.y, ptEnd.x, ptEnd.y);
 				break;

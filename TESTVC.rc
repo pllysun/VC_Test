@@ -75,7 +75,12 @@ BEGIN
             MENUITEM "绿色",                          ID_G
             MENUITEM "蓝色",                          ID_B
         END
-        MENUITEM "椭圆(&E)",                      ID_RE
+        POPUP "椭圆(&R)"
+        BEGIN
+            MENUITEM "红色",                          ID_RR 
+            MENUITEM "绿色",                          ID_RG
+            MENUITEM "蓝色",                          ID_RB
+        END
         MENUITEM SEPARATOR
         MENUITEM "关于(&A)",                      ID_ABOUT
     END
